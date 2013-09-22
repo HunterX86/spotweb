@@ -9,10 +9,10 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />  
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
 		<title><?php echo $pagetitle?></title>
-		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script type='text/javascript' src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<link rel='stylesheet' type='text/css' href='js/jquery.mobile-1.0a3/jquery.mobile-1.0a3.min.css'>
 		<link rel='shortcut icon' href='images/favicon.ico'>
+		<script src='js/jquery/jquery.min.js' type='text/javascript'></script>
+		<script src='js/jquery.mobile-1.0a3/jquery.mobile-1.0a3.min.js' type='text/javascript'></script>
 		<style>
 		    th{text-align:left;}
 		</style>
