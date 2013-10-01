@@ -2,32 +2,34 @@
 
      $sortType = $currentSession['user']['prefs']['defaultsortfield'];
  ?>
-<div data-role="page" id="search"> 
+<div data-role="page" id="search">
+ <?php require "menu.inc.php";?>
 	<div data-role="header" data-backbtn="false">
-	<h1>Zoek<?php require "logincontrol.inc.php"; ?></h1>
+	<a href="#mypanel">Menu</a>
+	<h1><?php echo _('Search'); ?></h1>
 	
 	<div data-role="navbar">
 		<ul>
-			<li><a href="#spots" data-icon="grid" >Spots</a></li>
-			<li><a href="#search" class="ui-btn-active" data-icon="search">Zoek</a></li>
-			<li><a href="#filters" data-icon="star">Filters</a></li>
+			<li><a href="#spots" data-icon="grid" data-transition="slide" data-direction="reverse">Spots</a></li>
+			<li><a href="#search" class="ui-btn-active ui-state-persist" data-icon="search" data-transition="slide">Zoek</a></li>
+			<li><a href="#filters" data-icon="star" data-transition="slide">Filters</a></li>
 		</ul>
 	</div><!-- /navbar -->
 
 </div>
 <div data-role="content">
-	<div data-role="fieldcontain" >
+	<div data-role="fieldcontain" div align="center">
 		<form id="filterform" action="<?php echo $setpath;?>index.php?page=search#spots" method="get" data-ajax="false">
-			<fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			   <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
 	         		
 	         		<input type="radio" id="radio-choice-1" name="sortby" value="" <?php echo $sortType == "" ? 'checked="checked"' : "" ?>>
 	         		<label for="radio-choice-1"><?php echo _('Relevance'); ?></label> 
 	         	
-                    <input type="radio" id="radio-choice-2"  name="sortby" value="stamp" <?php echo $sortType == "stamp" ? 'checked="checked"' : "" ?>>
+                    <input type="radio" id="radio-choice-2"  checked="checked" name="sortby" value="stamp" <?php echo $sortType == "stamp" ? 'checked="checked"' : "" ?>>
                     <label for="radio-choice-2"><?php echo _('Date');?></label> 
                     
                </fieldset>
-               
+               <br>
                <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
 	         		<input type="radio" name="search[type]" value="Titel" id="radio-choice-1" checked="checked" />
 	         		<label for="radio-choice-1">Titel</label>
@@ -37,21 +39,24 @@
 	
 	        	 	<input type="radio" name="search[type]" value="Tag" id="radio-choice-3"  />
 	         		<label for="radio-choice-3">Tag</label>
-			</fieldset>
+			   </fieldset>
+               <br>
 		    <input type="search" type="text" name="search[text]" value="" />
 	</form>
 	</div>
  </div>
- </div>
-<div data-role="page" id="filters"> 
-	<div data-role="header" data-backbtn="false">
-	<h1>Spotweb<?php require "logincontrol.inc.php"; ?></h1>
+</div>
 
+<div data-role="page" id="filters">
+    <?php require "menu.inc.php";?>
+    <div data-role="header" data-backbtn="false">
+    <a href="#mypanel">Menu</a>
+    <h1><?php echo _('Filters'); ?></h1>
 	<div data-role="navbar">
 		<ul>
-			<li><a href="#spots" data-icon="grid" >Spots</a></li>
-			<li><a href="#search" data-icon="search">Zoek</a></li>
-			<li><a href="#filters" data-icon="star" class="ui-btn-active" >Filters</a></li>
+			<li><a href="#spots" data-icon="grid" data-transition="flip" data-direction="reverse">Spots</a></li>
+			<li><a href="#search" data-icon="search" data-transition="slide" data-direction="reverse">Zoek</a></li>
+			<li><a href="#filters" data-icon="star" class="ui-btn-active" data-transition="slide">Filters</a></li>
 
 		</ul>
 	</div><!-- /navbar -->
@@ -83,11 +88,11 @@
 			
 			# Output de HTML
 			echo '<li>';
-			echo '	<img src="templates/mobile/icons/' . $filter['icon'] . '.png" class="ui-li-icon" />';
+			#echo '	<img src="templates/mobile/icons/' . $filter['icon'] . '.png" class="ui-li-icon" />';
 			echo '	<h3><a href="' . $strFilter . '#spots" rel="external">' . $filter['title'] . '</a></h3>';
 			echo '</li>';
 			
-			# Als er children zijn, output die ool
+			# Als er children zijn, output die ook
 			if (!empty($filter['children'])) {
 				echo '<ul class="filterlist subfilterlist">';
 				processFilters($tplHelper, $count_newspots, $filter['children'], $defaultSortField);
