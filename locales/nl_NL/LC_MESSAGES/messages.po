@@ -545,6 +545,12 @@ msgstr "Poort"
 msgid "Buggy (Some newsservers lose messages once in a while)"
 msgstr "Buggy (sommige nieuwsservers verliezen soms wat berichten)"
 
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
 msgid "Use different server for headers?"
 msgstr "Andere server voor headers opgeven?"
 
@@ -1864,7 +1870,7 @@ msgid "Loading"
 msgstr "Laden"
 
 msgid "Listed spotters"
-msgstr "Geregistreerde spotters"
+msgstr "Bekende spotters"
 
 msgid "Blacklisted"
 msgstr "Geblacklist"
